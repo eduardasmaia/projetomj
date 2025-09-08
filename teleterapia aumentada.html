@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Projeto - Teleterapia Aumentada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #3D3B30;
+        }
+        .calm-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .calm-accent {
+            background-color: #008080;
+        }
+        .calm-accent-text {
+            color: #008080;
+        }
+        .calm-accent-border {
+            border-color: #008080;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 250px;
+            max-height: 300px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 calm-shadow">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold calm-accent-text">Teleterapia Aumentada</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#projeto" class="hover:calm-accent-text transition-colors">O Projeto</a>
+                <a href="#vantagens" class="hover:calm-accent-text transition-colors">Vantagens</a>
+                <a href="#ia-recursos" class="hover:calm-accent-text transition-colors">Recursos IA</a>
+                <a href="#plano" class="hover:calm-accent-text transition-colors">Plano de Ação</a>
+                <a href="#visao" class="hover:calm-accent-text transition-colors">Visão de Futuro</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">Humanizando a Terapia Online com Tecnologia de Ponta.</h2>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">Uma plataforma inovadora que integra análise de gestos e microexpressões para fornecer insights mais profundos e fortalecer a aliança terapêutica no ambiente digital.</p>
+                <a href="#projeto" class="mt-8 inline-block calm-accent text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:opacity-90 transition-opacity">Explore o Projeto</a>
+            </div>
+        </section>
+
+        <section id="projeto" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold calm-accent-text">O Projeto: Um Co-piloto para o Terapeuta</h3>
+                    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">Nosso objetivo é criar uma ferramenta que atue como um "observador atento" digital, capturando dados objetivos de comportamento para enriquecer a percepção clínica do terapeuta, sem nunca substituí-la.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-4">Tecnologia Integrada</h4>
+                        <div class="space-y-6">
+                            <div class="bg-white p-4 rounded-lg calm-shadow">
+                                <h5 class="font-bold text-lg">🖐️ Rastreamento com Leap Motion</h5>
+                                <p class="text-gray-600 mt-1">Análise da variabilidade e fluidez gestual para identificar padrões de comportamento, como ansiedade ou engajamento.</p>
+                            </div>
+                             <div class="bg-white p-4 rounded-lg calm-shadow">
+                                <h5 class="font-bold text-lg">🙂 Análise de Microexpressões</h5>
+                                <p class="text-gray-600 mt-1">Tradução de expressões faciais sutis em insights sobre o estado emocional do paciente, em tempo real.</p>
+                            </div>
+                             <div class="bg-white p-4 rounded-lg calm-shadow">
+                                <h5 class="font-bold text-lg">🎮 Biofeedback e Gamificação</h5>
+                                <p class="text-gray-600 mt-1">Aumento do engajamento e da autoconsciência do paciente através de uma interface interativa que reflete suas respostas fisiológicas e emocionais.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-lg p-4 calm-shadow">
+                        <div class="border-2 border-gray-600 rounded-lg p-2">
+                            <div class="text-center text-sm font-semibold text-gray-300 mb-2">Mockup da Interface do Terapeuta</div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="col-span-2 bg-gray-900 rounded aspect-video flex items-center justify-center">
+                                    <div class="text-center">
+                                         <svg class="w-12 h-12 text-gray-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                        <p class="text-gray-500 text-xs mt-1">Vídeo do Paciente</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-700 rounded p-2 flex flex-col justify-between">
+                                    <h6 class="text-white font-bold text-sm">Dados em Tempo Real</h6>
+                                    <div>
+                                        <p class="text-xs text-gray-300">Emoção Dominante:</p>
+                                        <p id="mock-emotion" class="text-teal-400 font-semibold text-sm">Neutra</p>
+                                    </div>
+                                     <div>
+                                        <p class="text-xs text-gray-300">Fluidez Gestual:</p>
+                                        <div class="w-full bg-gray-600 rounded-full h-2.5 mt-1">
+                                             <div id="mock-gesture-bar" class="bg-teal-500 h-2.5 rounded-full" style="width: 45%"></div>
+                                        </div>
+                                    </div>
+                                     <div>
+                                        <p class="text-xs text-gray-300">Palavras-chave:</p>
+                                        <p class="text-gray-400 text-xs truncate">ansiedade, trabalho...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vantagens" class="py-16 md:py-24 bg-white">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold calm-accent-text">Vantagens e Oportunidades</h3>
+                    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">Benefícios claros para terapeutas, pacientes e para o mercado de saúde digital.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-xl">Para o Terapeuta</h4>
+                        <p class="mt-2 text-gray-600">Acesso a dados quantitativos para uma compreensão mais profunda, permitindo intervenções mais precisas e personalizadas.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-xl">Para o Paciente</h4>
+                        <p class="mt-2 text-gray-600">Maior engajamento, privacidade e autoconsciência através de uma interface interativa que torna a terapia mais acessível e menos intimidante.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-xl">Para o Mercado</h4>
+                        <p class="mt-2 text-gray-600">Posicionamento em um setor em crescimento exponencial, combinando teleterapia, biofeedback e tecnologia de reabilitação.</p>
+                    </div>
+                </div>
+                 <div class="mt-12 bg-teal-50 p-8 rounded-lg border-l-4 calm-accent-border">
+                     <h4 class="font-bold text-xl text-teal-800">Ampliando os Benefícios da Terapia Online</h4>
+                     <p class="mt-3 text-teal-700">Nossa plataforma reforça as vantagens já existentes da teleterapia, como a <span class="font-semibold">economia de tempo e custos</span>, <span class="font-semibold">maior privacidade</span> e a <span class="font-semibold">flexibilidade</span> de acesso, tornando o cuidado psicológico ainda mais eficaz e adaptado à vida moderna.</p>
+                 </div>
+             </div>
+        </section>
+
+        <section id="ia-recursos" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold calm-accent-text">Recursos Avançados com IA</h3>
+                    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">Demonstração das capacidades do Gemini API para enriquecer o tratamento e o engajamento do paciente.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg calm-shadow">
+                        <h4 class="text-2xl font-bold mb-4">Resumo Emocional ✨</h4>
+                        <p class="text-gray-600 mb-4">Cole a transcrição de uma parte da sessão abaixo para receber um resumo empático e conciso dos sentimentos expressados.</p>
+                        <textarea id="emotionalSummaryInput" class="w-full h-32 p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-teal-500 transition-colors resize-none" placeholder="Ex: 'O paciente relatou sentir-se sobrecarregado com o trabalho e a vida pessoal. Ele mencionou a ansiedade sobre uma apresentação futura e a frustração com a falta de tempo para hobbies.'"></textarea>
+                        <button id="summarizeBtn" class="mt-4 calm-accent text-white font-bold py-2 px-6 rounded-lg shadow-md hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
+                            Gerar Resumo ✨
+                        </button>
+                        <div id="summaryResult" class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 text-gray-700">
+                            O resumo da sessão será exibido aqui.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg calm-shadow">
+                        <h4 class="text-2xl font-bold mb-4">Conversor de Texto para Voz ✨</h4>
+                        <p class="text-gray-600 mb-4">Experimente ouvir como as emoções podem ser representadas com vozes de IA. Selecione um tom e digite uma frase.</p>
+                        <textarea id="ttsInput" class="w-full h-32 p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-teal-500 transition-colors resize-none" placeholder="Ex: 'É muito bom ter você aqui hoje.'"></textarea>
+                        <div class="mt-4 flex items-center justify-between">
+                            <select id="voiceSelect" class="p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-teal-500">
+                                <option value="Kore">Neutro</option>
+                                <option value="Fenrir">Animado</option>
+                                <option value="Charon">Calmo</option>
+                                <option value="Iapetus">Sério</option>
+                                <option value="Sadachbia">Vivo</option>
+                            </select>
+                            <button id="ttsBtn" class="calm-accent text-white font-bold py-2 px-6 rounded-lg shadow-md hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
+                                Falar ✨
+                            </button>
+                        </div>
+                        <audio id="ttsAudio" class="mt-4 w-full" controls hidden></audio>
+                        <div id="ttsStatus" class="mt-2 text-sm text-gray-500"></div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg calm-shadow">
+                        <h4 class="text-2xl font-bold mb-4">Gerador de Exercícios de Mindfulness ✨</h4>
+                        <p class="text-gray-600 mb-4">Descreva um tópico ou necessidade para gerar um pequeno script de meditação guiada.</p>
+                        <textarea id="mindfulnessInput" class="w-full h-32 p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-teal-500 transition-colors resize-none" placeholder="Ex: 'Um exercício para lidar com a ansiedade antes de uma reunião importante.'"></textarea>
+                        <button id="mindfulnessBtn" class="mt-4 calm-accent text-white font-bold py-2 px-6 rounded-lg shadow-md hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
+                            Gerar Exercício ✨
+                        </button>
+                        <div id="mindfulnessResult" class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 text-gray-700">
+                            O script do exercício será exibido aqui.
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg calm-shadow">
+                        <h4 class="text-2xl font-bold mb-4">Análise de Sentimento de Notas ✨</h4>
+                        <p class="text-gray-600 mb-4">Insira um trecho das suas anotações da sessão para uma análise rápida de sentimento.</p>
+                        <textarea id="sentimentInput" class="w-full h-32 p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-teal-500 transition-colors resize-none" placeholder="Ex: 'O paciente expressou frustração com o trabalho, mas parecia aliviado após falar sobre o fim de semana.'"></textarea>
+                        <button id="sentimentBtn" class="mt-4 calm-accent text-white font-bold py-2 px-6 rounded-lg shadow-md hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
+                            Analisar Sentimento ✨
+                        </button>
+                        <div id="sentimentResult" class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 text-gray-700 font-bold">
+                            O resultado da análise aparecerá aqui.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plano" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold calm-accent-text">Plano de Ação</h3>
+                    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">Uma abordagem pragmática e faseada para desenvolver e validar nosso protótipo, minimizando riscos e maximizando o foco na experiência do usuário.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg calm-shadow">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4">Escopo do Projeto</h4>
+                            <div class="flex space-x-2 border-b mb-4">
+                                <button id="inScopeBtn" class="py-2 px-4 font-semibold border-b-2 calm-accent-border calm-accent-text">Em Escopo</button>
+                                <button id="outScopeBtn" class="py-2 px-4 text-gray-500">Fora de Escopo</button>
+                            </div>
+                            <ul id="inScopeList" class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Aplicação web com integração Leap Motion.</li>
+                                <li>Painel de dados em tempo real para o terapeuta.</li>
+                                <li>Sistema de biofeedback e gamificação.</li>
+                                <li>Uso de hardware COTS e software open-source.</li>
+                                <li>Conformidade total com a LGPD.</li>
+                            </ul>
+                            <ul id="outScopeList" class="list-disc list-inside space-y-2 text-gray-700 hidden">
+                                <li>Desenvolvimento de hardware customizado.</li>
+                                <li>Busca por certificação ANVISA nesta fase.</li>
+                                <li>Diagnóstico automatizado ou detecção de mentiras.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4">Orçamento Estimado (MVP)</h4>
+                             <p class="text-gray-600 mb-4">Estratégia COTS (Commercial Off-The-Shelf) para um investimento inicial inferior a $50.000.</p>
+                            <div class="chart-container" style="height: 200px; max-height: 250px;">
+                                <canvas id="budgetChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h4 class="text-2xl font-bold mb-4">Cronograma e Entregáveis</h4>
+                        <div class="grid md:grid-cols-3 gap-4">
+                           <div class="md:col-span-2">
+                                <div class="chart-container" style="height: 300px; max-height: 350px;">
+                                    <canvas id="timelineChart"></canvas>
+                                </div>
+                           </div>
+                           <div class="bg-gray-50 p-4 rounded-lg border self-start">
+                                <h5 class="font-bold">Detalhes da Fase</h5>
+                                <p id="timelineDetails" class="mt-2 text-gray-600 text-sm">Passe o mouse sobre uma fase do cronograma para ver os detalhes.</p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+          <section id="visao" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold calm-accent-text">Visão de Futuro: Tecnologia a Serviço do Cuidado Humano</h3>
+                <p class="mt-6 text-lg text-gray-600 max-w-4xl mx-auto">A verdadeira medida de sucesso do nosso projeto será a capacidade da tecnologia de fortalecer a dimensão relacional da psicologia. A inovação mais significativa é o potencial de aumentar o engajamento e a motivação do paciente, tornando a teleterapia não apenas mais acessível, mas fundamentalmente mais humana e eficaz. A tecnologia deve ser uma aliada, e não uma concorrente, do cuidado humano.</p>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Teleterapia Aumentada. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Um projeto conceitual para o futuro da saúde mental.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scope Tabs Logic
+            const inScopeBtn = document.getElementById('inScopeBtn');
+            const outScopeBtn = document.getElementById('outScopeBtn');
+            const inScopeList = document.getElementById('inScopeList');
+            const outScopeList = document.getElementById('outScopeList');
+
+            inScopeBtn.addEventListener('click', () => {
+                inScopeList.classList.remove('hidden');
+                outScopeList.classList.add('hidden');
+                inScopeBtn.classList.add('calm-accent-border', 'calm-accent-text');
+                inScopeBtn.classList.remove('text-gray-500');
+                outScopeBtn.classList.remove('calm-accent-border', 'calm-accent-text');
+                outScopeBtn.classList.add('text-gray-500');
+            });
+
+            outScopeBtn.addEventListener('click', () => {
+                outScopeList.classList.remove('hidden');
+                inScopeList.classList.add('hidden');
+                outScopeBtn.classList.add('calm-accent-border', 'calm-accent-text');
+                outScopeBtn.classList.remove('text-gray-500');
+                inScopeBtn.classList.remove('calm-accent-border', 'calm-accent-text');
+                inScopeBtn.classList.add('text-gray-500');
+            });
+
+            // Budget Chart (Doughnut)
+            const budgetCtx = document.getElementById('budgetChart').getContext('2d');
+            new Chart(budgetCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Custo de Software (Estimado)', 'Custo de Hardware (COTS)'],
+                    datasets: [{
+                        label: 'Distribuição de Custos',
+                        data: [49801, 199],
+                        backgroundColor: [
+                            '#008080',
+                            '#88C0C0',
+                        ],
+                        borderColor: '#F8F7F4',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Timeline Chart (Bar)
+            const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+            const timelineDetails = document.getElementById('timelineDetails');
+            const timelineData = {
+                labels: ['Fase 1: Análise e Requisitos', 'Fase 2: Prototipagem e Desenvolvimento', 'Fase 3: Validação e Testes'],
+                details: [
+                    'Entregáveis: Levantamento de funcionalidades, design da arquitetura, definição de ferramentas e plano de validação ética.',
+                    'Entregáveis: Protótipo Mínimo Viável (MVP), interface de usuário (UI) funcional e documentação técnica inicial.',
+                    'Entregáveis: Coleta de feedback de terapeutas e pacientes, refinamento da plataforma e relatório de validação clínica.'
+                ],
+                datasets: [{
+                    label: 'Duração Mínima (Meses)',
+                    data: [1, 6, 3],
+                    backgroundColor: '#88C0C0',
+                    borderColor: '#008080',
+                    borderWidth: 1,
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.7
+                }, {
+                    label: 'Duração Máxima (Meses)',
+                    data: [2, 9, 6],
+                    backgroundColor: '#008080',
+                    borderColor: '#005F5F',
+                    borderWidth: 1,
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.7
+                }]
+            };
+
+            const timelineChart = new Chart(timelineCtx, {
+                type: 'bar',
+                data: timelineData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: false,
+                            title: {
+                                display: true,
+                                text: 'Duração em Meses'
+                            }
+                        },
+                        y: {
+                            stacked: false
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                             enabled: true
+                        }
+                    },
+                    onHover: (event, chartElement) => {
+                        if (chartElement.length) {
+                            const index = chartElement[0].index;
+                            timelineDetails.textContent = timelineData.details[index];
+                            event.native.target.style.cursor = 'pointer';
+                        } else {
+                            timelineDetails.textContent = 'Passe o mouse sobre uma fase do cronograma para ver os detalhes.';
+                            event.native.target.style.cursor = 'default';
+                        }
+                    }
+                }
+            });
+
+            // Mockup da Interface Animation
+            const mockEmotions = ['Neutra', 'Alegria (sutil)', 'Tensão', 'Concentração'];
+            const mockEmotionElement = document.getElementById('mock-emotion');
+            const mockGestureBar = document.getElementById('mock-gesture-bar');
+            setInterval(() => {
+                mockEmotionElement.textContent = mockEmotions[Math.floor(Math.random() * mockEmotions.length)];
+                const gestureValue = Math.floor(Math.random() * 60) + 20;
+                mockGestureBar.style.width = `${gestureValue}%`;
+            }, 3000);
+
+            // Gemini API Call Logic
+            // IMPORTANT: Replace 'YOUR_API_KEY_HERE' with your actual Google Gemini API Key.
+            const apiKey = 'YOUR_API_KEY_HERE';
+
+            const summarizeBtn = document.getElementById('summarizeBtn');
+            const summaryInput = document.getElementById('emotionalSummaryInput');
+            const summaryResult = document.getElementById('summaryResult');
+            
+            const mindfulnessBtn = document.getElementById('mindfulnessBtn');
+            const mindfulnessInput = document.getElementById('mindfulnessInput');
+            const mindfulnessResult = document.getElementById('mindfulnessResult');
+            
+            const sentimentBtn = document.getElementById('sentimentBtn');
+            const sentimentInput = document.getElementById('sentimentInput');
+            const sentimentResult = document.getElementById('sentimentResult');
+            
+            // Note: The TTS functionality requires a separate service (like ElevenLabs) and is not implemented here.
+            const ttsBtn = document.getElementById('ttsBtn');
+            const ttsStatus = document.getElementById('ttsStatus');
+            ttsBtn.addEventListener('click', () => {
+                ttsStatus.textContent = "A funcionalidade de Texto para Voz precisa de uma API de terceiros (como ElevenLabs) e não está implementada nesta demonstração.";
+            });
+
+            // Helper function to handle API calls
+            async function callGeminiAPI(userPrompt, systemPrompt, outputElement, buttonElement, buttonText) {
+                const text = userPrompt.value.trim();
+                if (!text) {
+                    outputElement.textContent = 'Por favor, insira algum texto.';
+                    return;
+                }
+
+                if (!apiKey || apiKey === 'YOUR_API_KEY_HERE') {
+                    outputElement.textContent = 'Erro: A chave da API não foi fornecida. Por favor, insira sua chave no código.';
+                    console.error("Erro: A chave da API não foi fornecida.");
+                    return;
+                }
+
+                buttonElement.disabled = true;
+                buttonElement.textContent = 'Gerando...';
+                outputElement.textContent = 'Aguarde...';
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                
+                const payload = {
+                    "contents": [{
+                        "role": "user",
+                        "parts": [{ "text": `${systemPrompt}\n\n${text}` }]
+                    }]
+                };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(`Erro na API: ${response.status} - ${JSON.stringify(errorData)}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+                    const generatedText = candidate?.content?.parts?.[0]?.text;
+                    outputElement.textContent = generatedText || 'Não foi possível gerar a resposta. Tente novamente.';
+                } catch (error) {
+                    console.error("Erro ao gerar conteúdo:", error);
+                    outputElement.textContent = 'Ocorreu um erro ao gerar a resposta. Verifique o console para mais detalhes.';
+                } finally {
+                    buttonElement.disabled = false;
+                    buttonElement.textContent = buttonText;
+                }
+            }
+
+            // Event listener for Emotional Summary
+            summarizeBtn.addEventListener('click', () => {
+                const systemPrompt = "Você é um analista de terapia digital. Crie um resumo empático e conciso do texto, focando em padrões emocionais e palavras-chave. Seja direto e humano.";
+                callGeminiAPI(summaryInput, systemPrompt, summaryResult, summarizeBtn, 'Gerar Resumo ✨');
+            });
+
+            // Event listener for Mindfulness Generator
+            mindfulnessBtn.addEventListener('click', () => {
+                const systemPrompt = "Você é um guia de meditação. Crie um script curto e prático de meditação guiada para mindfulness. O script deve ser direto, calmante e focado no tema fornecido. Comece com 'Sente-se confortavelmente...'";
+                callGeminiAPI(mindfulnessInput, systemPrompt, mindfulnessResult, mindfulnessBtn, 'Gerar Exercício ✨');
+            });
+
+            // Event listener for Sentiment Analysis
+            sentimentBtn.addEventListener('click', () => {
+                const systemPrompt = "Você é um analista de sentimento. Analise o sentimento principal do texto fornecido. Responda apenas com o sentimento detectado (e.g., 'Sentimento: Positivo', 'Sentimento: Negativo', 'Sentimento: Neutro', ou 'Sentimento: Misto').";
+                callGeminiAPI(sentimentInput, systemPrompt, sentimentResult, sentimentBtn, 'Analisar Sentimento ✨');
+            });
+        });
+    </script>
+</body>
+</html>
